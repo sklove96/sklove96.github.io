@@ -94,22 +94,14 @@ analytics:
 # Site Author
 author:
   name             : "Min"
-<<<<<<< HEAD
-  avatar           : "/assets/chuul.jpg"
-=======
   avatar           : "/assets/jangaaa.jpg"
->>>>>>> 33dd24f25cdb43c12365029a5c47e3777b7a1821
   bio              : "**초보개발자**의 코딩일기"
   location         : "South Korea"
   email            :
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
-<<<<<<< HEAD
-      url: "sklove96@naver.com"
-=======
       url: "mailto:sklove96@naver.com"
->>>>>>> 33dd24f25cdb43c12365029a5c47e3777b7a1821
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
