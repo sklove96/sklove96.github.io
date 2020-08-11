@@ -1,0 +1,116 @@
+---
+
+layout: posts
+
+title: "[Python] 파이썬(9) - 상속"
+
+date: 2020-08-11
+
+categories: [Python]
+
+---
+
+<br>
+
+
+# 상속
+
+- - -
+
+<br>
+
+## 정의
+
+- - -
+
+![s1](https://user-images.githubusercontent.com/67821750/89868268-7aab4c00-dbed-11ea-94a1-19532f8d2c04.png)
+
+<br>
+
+## 예시 (1)
+
+- - -
+
+![s2](https://user-images.githubusercontent.com/67821750/89868409-b6461600-dbed-11ea-9a49-cf4d12a30983.png)
+
+
+<br>
+
+## 예시 (2)
+
+- - -
+
+![s3](https://user-images.githubusercontent.com/67821750/89868436-c3630500-dbed-11ea-929e-c097a23f2fa0.png)
+
+<br>
+
+## Super
+
+- - -
+
+
+> 부모클래스의 객체 역할을 하는 프록시를 반환하는 내장 함수
+
+![s4](https://user-images.githubusercontent.com/67821750/89868527-e988a500-dbed-11ea-832b-39566460d11a.png)
+
+<br>
+
+## 다중상속
+
+- - -
+
+
+![s5](https://user-images.githubusercontent.com/67821750/89868575-fc02de80-dbed-11ea-8d46-e1d0709d2e6b.png)
+
+<br>
+
+## 오버라이딩
+
+- - -
+
+> 부모클래스로부터 상속받은 메서드를 다시 자식 클래스에 정의하는 것
+
+![s6](https://user-images.githubusercontent.com/67821750/89868620-12109f00-dbee-11ea-8dfc-b274d1dacd3c.png)
+
+<br>
+
+## 데코레이터
+
+- - -
+
+> 함수 꾸미는 객체 / __call__() 메서드를 구현하는 클래스 (객체를 함수 호출 방식으로 사용하도록 만들어준다.)
+
+![s7](https://user-images.githubusercontent.com/67821750/89868714-3c625c80-dbee-11ea-8a82-e7092997b045.png)
+
+<br>
+
+## For문 순회 가능 객체 만들기
+
+- - -
+
+![s8](https://user-images.githubusercontent.com/67821750/89868765-4f752c80-dbee-11ea-8fdc-4449b5811d3b.png)
+
+![s9](https://user-images.githubusercontent.com/67821750/89868795-5c921b80-dbee-11ea-9c1e-cbe4477a66ec.png)
+
+<br>
+
+## 상속 조건
+
+- - -
+
+```python
+# 추상 기반 클래스
+
+-자식 클래스가 갖춰야 할 특징(메서드)을 강제하는 기능
+-강제 조건 규약에 따르지 않으면 TypeError 예외 발생
+-metaclass = ABCMeta 클래스와 @abstractmethod 데코레이터 이용
+```
+
+![s10](https://user-images.githubusercontent.com/67821750/89868907-83e8e880-dbee-11ea-88aa-47a92d7b82d7.png)
+
+
+
+
+
+<br>
+<br>
