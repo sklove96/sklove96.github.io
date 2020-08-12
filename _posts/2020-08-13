@@ -1,0 +1,177 @@
+---
+
+layout: posts
+
+title: "[Spring] Spring MVC"
+
+date: 2020-08-13
+
+categories: [Spring]
+
+---
+
+<br>
+
+
+# Spring MVC
+
+<br>
+<br>
+
+## Spring
+
+- - -
+
+> 하나의 기능을 위해서만 만들어진 프레임워크가 아닌 ‘코어’ 라고 할 수 있는 프레임워크. 여기에 여러 서브 프로젝트를 결합하여 다양한 상황에 대처할 수 있도록 개발됨.
+
+#### -> Model, View, Controller를 분리한 디자인 패턴 (개발자가 직접 개발해야함)
+
+<br>
+
+## MVC 용어 설명
+
+- - -
+
+### 1) Model
+
+```
+- 애플리케이션의 상태를 나타냄.
+- POJO로 구성.
+- JAVA BEANS
+- Controller에서 View로 객체 전달하는 데에 사용
+- Key/value 형태의 객체
+```
+
+<br>
+
+### 2) View
+
+```
+- 디스플레이 데이터 또는 프레젠테이션
+- 렌더링 담당, HTML output 생성
+- JSP, Thymeleaf, Groovy 등
+```
+
+<br>
+
+### 3) Controller
+
+> view와 model 사이 인터페이스 역할을 하며, 사용자의 입력 및 요청 수신하여 model 에 담아 view에 전달
+
+```
+Controller -> Service -> DAO -> DB
+```
+
+- httpServletRequest, httpServletResponse를 거의 사용할 필요 없이 필요한 기능 구현
+- 다양한 타입의 파라미터 처리, 다양한 타입의 리턴 타입 사용 가능
+- Get, Post 방식등 전송 방식에 대한 처리 어노테이션으로 처리 가능
+
+
+<br>
+
+![a1](https://user-images.githubusercontent.com/67821750/90041028-afa9c280-dd03-11ea-892e-e585f406665e.png)
+
+#### DispatcherServlet
+
+Spring framework가 제공하는 Servlet 클래스로, 사용자의 요청을 받는다.
+Dispatcher가 받은 요청은 HandlerMapping으로 넘어간다.
+
+#### HandlerMapping
+
+사용자의 요청을 처리할 Controller를 찾는다. (Controller URL Mapping)
+요청 url에 해당하는 Controller 정보를 저장하는 table을 가진다.
+즉, 클래스에 @RequestMapping(“/url”) annotaion을 명시하면, 해당 URL에 대한 요청이 들어왔을 때 table에 저장된 정보에 따라 해당 클래스 또는 메서드에 Mapping한다.
+
+#### ViewResolver
+
+View Object(the physical view files)를 반환한다.
+예를 들어, view name: home, prefix: /WEB-INF/views/, suffix: .jsp는 “/WEB-INF/views/home.jsp”라는 위치의 View(JSP)에 Controller에게 받은 Model을 전달한다.
+이 후에 해당 View에서 이 Model data를 이용하여 적절한 페이지를 만들어 사용자에게 보여준다.
+
+
+<br>
+
+## 디렉토리 구조
+
+- - -
+
+앞서 포스팅 하였던 spring 글에서도 스프링 디렉토리에 관하여 다뤘지만, 여기서 세세하게 다시 짚어보겠다.
+
+<br>
+
+![ff](https://user-images.githubusercontent.com/67821750/90041521-5b531280-dd04-11ea-8133-9df17019e9c2.png)
+
+<br>
+
+### src
+
+개발자가 작성한 Servlet 코드가 저장
+
+<br>
+
+### src/main/java
+
+개발되는 Java 코드의 경로
+
+<br>
+
+### src/main/resources
+
+서버가 실행될 때 필요한 파일들의 경로
+
+<br>
+
+### src/test/java
+
+테스트 전용 경로 (각 테스트 코드 작성 경로)
+
+
+<br>
+
+### src/test/resource
+
+테스트 시에만 사용되는 파일들의 경로
+
+<br>
+
+### Libraries
+
+Servlet이나 JSP에서 추가로 사용하는 라이브러리 또는 드라이버로 jar로 압축한 파일이어야 한다.
+
+<br>
+
+### WebContent (전체 ROOT) - webapp
+
+Deploy할 때 WebContent 디렉터리 전체가 .war로 묶어서 보내진다.
+
+<br>
+
+### resources
+
+정적인 데이터 (ex. image file, css, js, fonts)
+
+<br>
+
+### WEB-INF
+
+- ##### classes: 작성한 Java Servlet 파일이 나중에 .class로 이곳에 모두 저장된다.
+- ##### lib: 추가한 모든 라이브러리 또는 드라이버가 이곳에 모두 저장된다.
+- ##### props: property file을 저장한다.
+- ##### spring: spring configuration files을 저장한다. (Spring과 관련된 설정 파일을 모아둔 것)
+
+- ##### views: Controller와 매핑되는 .jsp 파일들을 저장한다. (JSP 파일의 경로)
+
+- ##### web.xml: web application의 설정을 위한 web deployment descriptor
+
+<br>
+
+![a2](https://user-images.githubusercontent.com/67821750/90042144-3c08b500-dd05-11ea-9f53-13d9488d25d8.png)
+
+<br>
+
+<br>
+
+
+
+
+
