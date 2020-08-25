@@ -1,0 +1,143 @@
+---
+
+layout: posts
+
+title: "[Nodejs] Nodejs 기본 문법 (3)"
+
+date: 2020-08-25
+
+categories: [Nodejs]
+
+---
+
+<br>
+
+# Nodejs 기본 문법 (3)
+
+<br>
+<br>
+
+- ## 기타 fs 제공 메서드 (이어서)
+
+- - -
+
+<br>
+
+#### 1) fs.access(경로, 옵션, 콜백)
+
+폴더나 파일에 접근할 수 있는지 체크
+> (F_OK: 파일 존재 여부, R_OK: 읽기 권한 여부, W_OK: 쓰기 권한 여부 체크
+-> 이 때의 에러 코드: ENOENT)
+
+
+#### 2) fs.mkdir(경로, 콜백)
+
+폴더를 만드는 메서드. 이미 존재할 시 에러
+
+#### 3) fs.open(경로, 옵션, 콜백)
+
+파일의 아이디를 가져오는 메서드. 파일을 생성한 뒤 아이디 가져와서 읽기/ 쓰기 수행 (w, r, a: 기존 파일에 추가)
+
+#### 4) fs.rename(기존 경로, 새 경로, 콜백)
+
+파일의 이름 바꾸는 메서드
+
+#### 5) fs.readdir(경로, 콜백)
+
+폴더 안의 내용물 확인
+
+#### 6) fs.unlink(경로, 콜백)
+
+파일 지우기
+
+#### 7) fs.rmdir(경로, 콜백)
+
+폴더 지우기
+
+<br>
+
+![a](https://user-images.githubusercontent.com/67821750/91157708-a4da2f00-e700-11ea-98fa-110cc682e8a2.png)
+
+![aa](https://user-images.githubusercontent.com/67821750/91157711-a73c8900-e700-11ea-9cbd-990cc6ff559a.png)
+
+
+<br>
+<br>
+
+- ## 파일 복사
+
+- - -
+
+### createReadStream과 createWriteStream pipe 하지 않고 파일 복사하기
+
+![b](https://user-images.githubusercontent.com/67821750/91157874-df43cc00-e700-11ea-8301-a9cfa7749d3d.png)
+
+<br>
+<br>
+
+- ## 이벤트 이해
+
+- - -
+
+![bb](https://user-images.githubusercontent.com/67821750/91157989-000c2180-e701-11ea-85a5-e4d5bc91d573.png)
+![bbb](https://user-images.githubusercontent.com/67821750/91157996-01d5e500-e701-11ea-937e-42370ae8c591.png)
+
+<br>
+
+### On(이벤트명, 콜백)
+
+이벤트 이름과 이벤트 발생 시의 콜백 연결
+
+### addListener(이벤트명, 콜백)
+
+on기능과 같다
+
+### once(이벤트명, 콜백)
+
+한 번만 실행되는 이벤트
+
+### removeAllListeners(이벤트명)
+
+이벤트에 연결된 모든 리스너 제거
+
+### removeListener(이벤트명, 리스너)
+
+이벤트에 연결된 리스너 하나씩 제거 (노드 10 버전에 추가된 메서드인 off 도 이와 같은 기능을 함)
+
+
+### listenerCount(이벤트명)
+
+현재 리스너가 몇 개 연결되어 있는지 확인
+
+
+<br>
+<br>
+
+- ## 예외 처리하기
+
+- - -
+
+
+> 멀티 스레드 프로그램에서는 스레드 하나가 멈추면 그 일을 다른 스레드가 대신하지만, 노드는 메인 스레드가 하나뿐이므로 예외처리가 중요하다. 혹시나 메인 스레드가 에러에 걸리면 전체 서버가 멈춰버린다.
+
+![c](https://user-images.githubusercontent.com/67821750/91158422-92acc080-e701-11ea-8e8f-bece9bc0d2ca.png)
+
+```
+setInterval: 프로세스가 멈추는지 여부 체크
+throw new Error: 에러 강제로 발생시킴
+```
+
+<br>
+
+#### 프로미스 에러 처리
+
+![cc](https://user-images.githubusercontent.com/67821750/91158545-bf60d800-e701-11ea-9757-d163acfe0122.png)
+
+이 경우에도 에러 계속 반복된다. 물론 catch 하지 않아도 알아서 처리되지만, catch 사용을 권장한다.
+
+
+<br>
+
+<br>
+
+
